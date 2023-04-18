@@ -1,7 +1,8 @@
 // Data Model
-player = createPlayer('Alec', '👴🏻')
-computer = createPlayer('Computer', '🖥️')
-game = createGame(player, computer)
+var player = createPlayer('Alec', '👴🏻')
+var computer = createPlayer('Computer', '🖥️')
+var currentGame = createGame(player, computer)
+var computerOptions = ['rock', 'paper', 'scissors']
 
 // Functions
 
@@ -25,7 +26,26 @@ function createGame(player1, player2) {
   return game
 }
 
-function takeTurn() {
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+}
+
+function takeTurn(playerChoice, game) {
+  if(playerChoice = 'rock') {
+    game.player1Choice = 'rock'
+    game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
+  }
+  if(playerChoice = 'paper') {
+    game.player1Choice = 'paper'
+    game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
+  }
+  if(playerChoice = 'scissors') {
+    game.player1Choice = 'scissors'
+    game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
+  }
+}
+
+function detectDraw() {
   
 }
 
@@ -33,9 +53,6 @@ function checkWinCondition() {
   
 }
 
-function detectDraw() {
-  
-}
 
 function resetGame() {
   
