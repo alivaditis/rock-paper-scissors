@@ -1,0 +1,15 @@
+* {
+  border: solid red 2px;
+}
+
+body {
+  height: 100dvh;
+  display: flex;
+  justify-content: space-between;
+  background-color: #EEF5DB;  
+}
+
+.player-info {
+  width: 15%;
+  background-color: #C7EFCF;
+}
