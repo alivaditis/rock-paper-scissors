@@ -26,3 +26,7 @@ header {
 .player-info {
   margin-top: 6rem;
 }
+
+.hidden {
+  display: none;
+}
