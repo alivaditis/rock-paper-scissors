@@ -5,20 +5,18 @@ gameboard = document.querySelector('.gameboard')
 // Event Listeners
 
 gameboard.addEventListener('click', function(event){
+  console.log(currentGame)
   if(event.target.id === 'rock'){
     takeTurn('rock', currentGame)
     detectDraw(currentGame)
-    checkWinCondition(currentGame)
   }
   if(event.target.id === 'paper'){
     takeTurn('paper', currentGame)
     detectDraw(currentGame)
-    checkWinCondition(currentGame)
   }
   if(event.target.id === 'scissors'){
     takeTurn('scissors', currentGame)
     detectDraw(currentGame)
-    checkWinCondition(currentGame)
   }
 })
 
@@ -72,7 +70,7 @@ function takeTurn(playerChoice, game) {
 function detectDraw(game) {
   if (game.player1Choice === game.player2Choice) {
     console.log('It\'s a Draw!')
-  }
+  } else checkWinCondition(game)
 }
 
 function checkWinCondition(game) {
@@ -82,7 +80,7 @@ function checkWinCondition(game) {
   } else if (game.player1Choice === 'paper' && game.player2Choice === 'rock') {
     game.player1.wins ++
     console.log('Player Wins!')
-  } else if (game.player1Choice === 'scissors' && game.player2Choice === 'scissors') {
+  } else if (game.player1Choice === 'scissors' && game.player2Choice === 'paper') {
     game.player1.wins ++
     console.log('Player Wins!')
   } else {
