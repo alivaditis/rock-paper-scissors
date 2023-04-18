@@ -9,7 +9,13 @@ body {
   background-color: #EEF5DB;  
 }
 
+header {
+  margin-top: 4rem;
+}
+
 .player-info {
-  width: 15%;
+  width: 18%;
   background-color: #C7EFCF;
+  display: flex;
+  flex-direction: column 
 }
