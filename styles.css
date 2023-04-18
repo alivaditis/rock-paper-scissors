@@ -10,8 +10,12 @@ body {
   margin: 0;
 }
 
+img {
+  max-width: 100%;
+}
+
 header {
-  margin-top: 4rem;
+  margin-top: 80px;
   font-size: 2.5rem;
 }
 
@@ -25,6 +29,19 @@ header {
 
 .player-info {
   margin-top: 6rem;
+}
+
+.gameboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.choose-section {
+  display: flex;
+  gap: 1.5rem;
+  width: 80%;
+  margin-top: 176px;
 }
 
 .hidden {
