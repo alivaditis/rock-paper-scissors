@@ -1,6 +1,8 @@
 // QuerySelectors
 
 gameboard = document.querySelector('.gameboard')
+PlayerNames = document.querySelectorAll('.playerName')
+Wins = document.querySelectorAll('.wins')
 
 // Event Listeners
 
