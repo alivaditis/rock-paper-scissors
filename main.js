@@ -19,6 +19,7 @@ function createGame(player1, player2) {
     player2Choice: null,
     gameType: null
   }
+  return game
 }
 
 function checkWinCondition() {
