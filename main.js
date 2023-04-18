@@ -1,4 +1,4 @@
-function createPlayer(playerName) {
+function createPlayer(playerName, token, wins) {
   var player = {
     playerName,
     token: '👴🏻',
@@ -23,5 +23,5 @@ function detectDraw() {
 }
 
 function resetGame() {
-  
+
 }
