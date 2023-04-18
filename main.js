@@ -31,26 +31,40 @@ function getRandomIndex(array) {
 }
 
 function takeTurn(playerChoice, game) {
-  if(playerChoice = 'rock') {
+  if (playerChoice = 'rock') {
     game.player1Choice = 'rock'
     game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
   }
-  if(playerChoice = 'paper') {
+  if (playerChoice = 'paper') {
     game.player1Choice = 'paper'
     game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
   }
-  if(playerChoice = 'scissors') {
+  if (playerChoice = 'scissors') {
     game.player1Choice = 'scissors'
     game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
   }
 }
 
 function detectDraw() {
-  
+  if (game.player1Choice === game.player2Choice) {
+    console.log('It\'s a Draw!')
+  }
 }
 
-function checkWinCondition() {
-  
+function checkWinCondition(game) {
+  if (game.player1Choice === 'rock' && game.player2Choice === 'scissors') {
+    game.player1.wins ++
+    console.log('Player Wins!')
+  } else if (game.player1Choice === 'paper' && game.player2Choice === 'rock') {
+    game.player1.wins ++
+    console.log('Player Wins!')
+  } else if (game.player1Choice === 'scissors' && game.player2Choice === 'scissors') {
+    game.player1.wins ++
+    console.log('Player Wins!')
+  } else {
+    game.player2.wins ++
+    console.log('Computer Wins!')
+  }
 }
 
 
