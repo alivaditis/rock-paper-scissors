@@ -1,3 +1,27 @@
+// QuerySelectors
+
+gameboard = document.querySelector('.gameboard')
+
+// Event Listeners
+
+gameboard.addEventListener('click', function(event){
+  if(event.target.id === 'rock'){
+    takeTurn('rock', currentGame)
+    detectDraw(currentGame)
+    checkWinCondition(currentGame)
+  }
+  if(event.target.id === 'paper'){
+    takeTurn('paper', currentGame)
+    detectDraw(currentGame)
+    checkWinCondition(currentGame)
+  }
+  if(event.target.id === 'scissors'){
+    takeTurn('scissors', currentGame)
+    detectDraw(currentGame)
+    checkWinCondition(currentGame)
+  }
+})
+
 // Data Model
 var player = createPlayer('Alec', '👴🏻')
 var computer = createPlayer('Computer', '🖥️')
@@ -45,7 +69,7 @@ function takeTurn(playerChoice, game) {
   }
 }
 
-function detectDraw() {
+function detectDraw(game) {
   if (game.player1Choice === game.player2Choice) {
     console.log('It\'s a Draw!')
   }
