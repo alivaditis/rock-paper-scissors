@@ -4,29 +4,23 @@ gameboard = document.querySelector('.gameboard')
 PlayerNames = document.querySelectorAll('.playerName')
 Wins = document.querySelectorAll('.wins')
 
-// Event Listeners
-
-gameboard.addEventListener('click', function(event){
-  console.log(currentGame)
-  if(event.target.id === 'rock'){
-    takeTurn('rock', currentGame)
-    detectDraw(currentGame)
-  }
-  if(event.target.id === 'paper'){
-    takeTurn('paper', currentGame)
-    detectDraw(currentGame)
-  }
-  if(event.target.id === 'scissors'){
-    takeTurn('scissors', currentGame)
-    detectDraw(currentGame)
-  }
-})
-
 // Data Model
 var player = createPlayer('Alec', '👴🏻')
 var computer = createPlayer('Computer', '🖥️')
 var currentGame = createGame(player, computer)
-var computerOptions = ['rock', 'paper', 'scissors']
+var weaponOptions = ['rock', 'paper', 'scissors']
+
+// Event Listeners
+
+gameboard.addEventListener('click', function(event){
+  console.log(currentGame)
+  for (var i = 0; i < weaponOptions.length; i++)
+    if(event.target.id === weaponOptions[i]){
+      takeTurn(weaponOptions[i], currentGame)
+      detectDraw(currentGame)
+    }
+  displayWins(game)
+})
 
 // Functions
 
@@ -50,22 +44,19 @@ function createGame(player1, player2) {
   return game
 }
 
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-}
 
 function takeTurn(playerChoice, game) {
   if (playerChoice = 'rock') {
     game.player1Choice = 'rock'
-    game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
+    game.player2Choice = weaponOptions[getRandomIndex(weaponOptions)]
   }
   if (playerChoice = 'paper') {
     game.player1Choice = 'paper'
-    game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
+    game.player2Choice = weaponOptions[getRandomIndex(weaponOptions)]
   }
   if (playerChoice = 'scissors') {
     game.player1Choice = 'scissors'
-    game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
+    game.player2Choice = weaponOptions[getRandomIndex(weaponOptions)]
   }
 }
 
@@ -91,8 +82,11 @@ function checkWinCondition(game) {
   }
 }
 
-
 function resetGame() {
   
 }
 
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+}
