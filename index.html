@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+  </style>
 </head>
 <body>
   <section class="player-info-section">
@@ -17,7 +20,7 @@
     <button class="hidden">Change Game</button>
   </section>
   <section class="gameboard">
-    <header>Choose Game</header>
+    <header class="message">Choose Rock, Paper, Or Scissors</header>
     <section class="choose-section">
       <div>
         <img src="assets/cave.png" alt="a cartoonish graphic representing a cave" id="rock"> 
@@ -28,6 +31,10 @@
       <div>
         <img src="assets/lines-scissors.png" alt="a cartoon graphic representing scissors" id="scissors">
       </div>
+    </section>
+    <section class="results hidden">
+      <section class = 'choice-column1'></section>
+      <section class = 'choice-column2'></section>
     </section>
   </section>
   <section class="player-info-section">
