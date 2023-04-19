@@ -1,30 +1,29 @@
 // QuerySelectors
 
 gameboard = document.querySelector('.gameboard')
-
-// Event Listeners
-
-gameboard.addEventListener('click', function(event){
-  console.log(currentGame)
-  if(event.target.id === 'rock'){
-    takeTurn('rock', currentGame)
-    detectDraw(currentGame)
-  }
-  if(event.target.id === 'paper'){
-    takeTurn('paper', currentGame)
-    detectDraw(currentGame)
-  }
-  if(event.target.id === 'scissors'){
-    takeTurn('scissors', currentGame)
-    detectDraw(currentGame)
-  }
-})
+player1Name = document.querySelectorAll('.player1-name')
+player2Name = document.querySelectorAll('.player2-name')
+player1Win = document.querySelector('.player1-wins')
+player2Win = document.querySelector('.player2-wins')
 
 // Data Model
 var player = createPlayer('Alec', '👴🏻')
 var computer = createPlayer('Computer', '🖥️')
 var currentGame = createGame(player, computer)
-var computerOptions = ['rock', 'paper', 'scissors']
+var weaponOptions = ['rock', 'paper', 'scissors']
+
+// Event Listeners
+
+gameboard.addEventListener('click', function(event){
+  console.log(currentGame)
+  for (var i = 0; i < weaponOptions.length; i++) {
+    if(event.target.id === weaponOptions[i]){
+      takeTurn(weaponOptions[i], currentGame)
+      detectDraw(currentGame)
+    }
+  }
+  displayWins(currentGame)
+})
 
 // Functions
 
@@ -48,22 +47,13 @@ function createGame(player1, player2) {
   return game
 }
 
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-}
 
 function takeTurn(playerChoice, game) {
-  if (playerChoice = 'rock') {
-    game.player1Choice = 'rock'
-    game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
-  }
-  if (playerChoice = 'paper') {
-    game.player1Choice = 'paper'
-    game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
-  }
-  if (playerChoice = 'scissors') {
-    game.player1Choice = 'scissors'
-    game.player2Choice = computerOptions[getRandomIndex(computerOptions)]
+  for (var i = 0; i < weaponOptions.length; i++) {
+    if (playerChoice = weaponOptions[i]) {
+      game.player1Choice = weaponOptions[i]
+      game.player2Choice = weaponOptions[getRandomIndex(weaponOptions)]
+    }
   }
 }
 
@@ -89,8 +79,15 @@ function checkWinCondition(game) {
   }
 }
 
-
 function resetGame() {
   
 }
 
+function displayWins(game) {
+  player1Win.innerText = `Wins: ${currentGame.player1.wins}`
+  player2Win.innerText = `Wins: ${currentGame.player2.wins}`
+}
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+}
