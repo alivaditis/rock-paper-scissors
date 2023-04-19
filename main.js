@@ -9,6 +9,8 @@ player1Win = document.querySelector('.player1-wins')
 player2Win = document.querySelector('.player2-wins')
 chooseSection = document.querySelector('.choose-section')
 results = document.querySelector('.results')
+choiceColumn1 = document.querySelector('.choice-column1')
+choiceColumn2 = document.querySelector('.choice-column2')
 
 // Data Model
 var player = createPlayer('Alec', '👴🏻')
@@ -33,7 +35,7 @@ gameboard.addEventListener('click', function(event){
 
 window.addEventListener('load', function() {
   player1Name.innerText = `${currentGame.player1.playerName}`
-  player2Name.innerText = `${currentGame.player1.playerName}`
+  player2Name.innerText = `${currentGame.player2.playerName}`
   player1Token.innerText = `${currentGame.player1.token}`
   player2Token.innerText = `${currentGame.player2.token}`
 })
@@ -103,22 +105,24 @@ function resetGame() {
 
 function showResults(game) {
   chooseSection.classList.toggle('hidden')
-  results.innerHTML = ''
+  choiceColumn1.innerHTML = ''
+  choiceColumn2.innerHTML = ''
   for (var i = 0; i < weaponOptions.length; i++) {
     if (game.player1Choice === weaponOptions[i]) {
-      results.innerHTML += 
+      choiceColumn1.innerHTML += 
       `
-      <div>
-        <img src='${imgSources[i]}' alt='${alts[i]}>' 
-      </div>
+      <img src='${imgSources[i]}' alt='${alts[i]}'>
+      <p>
+      ${game.player1.token}
+      </p>
       `
     }
     if (game.player2Choice === weaponOptions[i]) {
-      results.innerHTML += 
+      choiceColumn2.innerHTML += 
       `
-      <div>
-        <img src='${imgSources[i]}' alt='${alts[i]}>' 
-      </div>
+        <img src='${imgSources[i]}' alt='${alts[i]}'>
+        <p>${game.player2.token}
+        </p>
       `
     }
   }
