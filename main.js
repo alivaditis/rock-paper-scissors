@@ -12,6 +12,8 @@ results = document.querySelector('.results')
 choiceColumn1 = document.querySelector('.choice-column1')
 choiceColumn2 = document.querySelector('.choice-column2')
 message = document.querySelector('.message')
+alien = document.querySelector('#alien')
+lizard = document.querySelector('#lizard')
 
 // Data Model
 var player = createPlayer('Alec', '👴🏻')
@@ -29,6 +31,7 @@ var alts =
 // Event Listeners
 
 gameboard.addEventListener('click', function(event){
+  console.log(event.target.id)
   for (var i = 0; i < weaponOptions.length; i++) {
     if(event.target.id === weaponOptions[i]){
       takeTurn(weaponOptions[i], currentGame)
@@ -44,6 +47,8 @@ window.addEventListener('load', function() {
   player2Name.innerText = `${currentGame.player2.playerName}`
   player1Token.innerText = `${currentGame.player1.token}`
   player2Token.innerText = `${currentGame.player2.token}`
+  // updateGameType(currentGame)
+  // detectGameType(currentGame)
 })
 
 // Functions
@@ -63,15 +68,61 @@ function createGame(player1, player2) {
     player2,
     player1Choice: null,
     player2Choice: null,
-    gameType: null
+    gameType: 'classic'
   }
   return game
 }
 
+function updateGameType(game) {
+  game.gameType = 'ultimate'
+}
+
+function detectGameType(game) {
+  if (game.gameType === 'ultimate') {
+    alien.classList.remove('hidden')
+    lizard.classList.remove('hidden')
+    message.innerText = 'Choose Rock, Paper, Scissors, Alien, or Lizard'
+    weaponOptions = ['rock', 'paper', 'scissors', 'alien', 'lizard']
+    imgSources = 
+      [
+        'assets/cave.png',
+        'assets/lines-paper.png',
+        'assets/lines-scissors.png', 
+        'assets/lines-alien.png', 
+        'assets/lizard.png',
+      ]
+    alts =
+      [
+        'a cartoon graphic representing a cave',
+        'a cartoon graphic representing paper and a pen',
+        'a cartoon graphic representing scissors',
+        'a cartoon graphic representing a purple alien with four arms',
+        'a cartoon graphic representing a green lizard'
+      ]
+  }
+  if (game.gameType === 'classic') {
+    alien.classList.add('hidden')
+    lizard.classList.add('hidden')
+    message.innerText = 'Choose Rock, Paper, or Scissors'
+    weaponOptions = ['rock', 'paper', 'scissors']
+    imgSources = 
+      [
+        'assets/cave.png',
+        'assets/lines-paper.png',
+        'assets/lines-scissors.png', 
+      ]
+    alts =
+      [
+        'a cartoon graphic representing a cave',
+        'a cartoon graphic representing paper and a pen',
+        'a cartoon graphic representing scissors',
+      ]
+  }
+}
 
 function takeTurn(playerChoice, game) {
   for (var i = 0; i < weaponOptions.length; i++) {
-    if (playerChoice = weaponOptions[i]) {
+    if (playerChoice === weaponOptions[i]) {
       game.player1Choice = weaponOptions[i]
       game.player2Choice = weaponOptions[getRandomIndex(weaponOptions)]
     }
@@ -85,13 +136,19 @@ function detectDraw(game) {
 }
 
 function checkWinCondition(game) {
-  if (game.player1Choice === 'rock' && game.player2Choice === 'scissors') {
+  if (game.player1Choice === 'rock' && (game.player2Choice === 'scissors' || game.player2Choice === 'lizard')) {
     game.player1.wins ++
     message.innerText =`${game.player1.playerName} Wins This Round!`
-  } else if (game.player1Choice === 'paper' && game.player2Choice === 'rock') {
+  } else if (game.player1Choice === 'paper' && (game.player2Choice === 'rock' || game.player2Choice === 'alien')) {
     game.player1.wins ++
     message.innerText =`${game.player1.playerName} Wins This Round!`
-  } else if (game.player1Choice === 'scissors' && game.player2Choice === 'paper') {
+  } else if (game.player1Choice === 'scissors' && (game.player2Choice === 'paper' || game.player2Choice === 'lizard')) {
+    game.player1.wins ++
+    message.innerText =`${game.player1.playerName} Wins This Round!`
+  } else if (game.player1Choice === 'lizard' && (game.player2Choice === 'paper' || game.player2Choice === 'alien')) {
+    game.player1.wins ++
+    message.innerText =`${game.player1.playerName} Wins This Round!`
+  } else if (game.player1Choice === 'aliean' && (game.player2Choice === 'scissors' || game.player2Choice === 'rock')) {
     game.player1.wins ++
     message.innerText =`${game.player1.playerName} Wins This Round!`
   } else {
@@ -103,10 +160,6 @@ function checkWinCondition(game) {
 function displayWins(game) {
   player1Win.innerText = `Wins: ${currentGame.player1.wins}`
   player2Win.innerText = `Wins: ${currentGame.player2.wins}`
-}
-
-function resetGame() {
-  
 }
 
 function showResults(game) {
@@ -138,7 +191,7 @@ function showResults(game) {
 }
 
 function reset() {
-  message.innerText = 'Choose Rock, Paper, or Scissors'
+  detectGameType(currentGame)
   chooseSection.classList.toggle('hidden')
   results.classList.toggle('hidden')
 }
