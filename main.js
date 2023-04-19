@@ -7,6 +7,7 @@ player1Name = document.querySelector('.player1-name')
 player2Name = document.querySelector('.player2-name')
 player1Win = document.querySelector('.player1-wins')
 player2Win = document.querySelector('.player2-wins')
+chooseSection = document.querySelector('.choose-section')
 
 // Data Model
 var player = createPlayer('Alec', '👴🏻')

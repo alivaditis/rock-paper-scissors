@@ -19,6 +19,10 @@ header {
   font-size: 2.5rem;
 }
 
+button {
+    cursor: pointer;
+}
+
 .player-info-section {
   width: 18%;
   background-color: #C7EFCF;
@@ -46,6 +50,10 @@ header {
   gap: 1.5rem;
   width: 80%;
   margin-top: 176px;
+}
+
+#rock, #paper, #scissors {
+  cursor: pointer
 }
 
 .hidden {
