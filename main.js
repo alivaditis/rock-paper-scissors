@@ -19,7 +19,12 @@ var computer = createPlayer('Computer', '🖥️')
 var currentGame = createGame(player, computer)
 var weaponOptions = ['rock', 'paper', 'scissors']
 var imgSources = ['assets/cave.png', 'assets/lines-paper.png', 'assets/lines-scissors.png']
-var alts = ['a cartoonish graphic representing a cave', 'a cartoon graphic representing paper and a pen', 'a cartoon graphic representing scissors']
+var alts =
+  [
+    'a cartoonish graphic representing a cave',
+    'a cartoon graphic representing paper and a pen',
+    'a cartoon graphic representing scissors'
+  ]
 
 // Event Listeners
 
@@ -75,23 +80,23 @@ function takeTurn(playerChoice, game) {
 
 function detectDraw(game) {
   if (game.player1Choice === game.player2Choice) {
-    console.log('It\'s a Draw!')
-  } else checkWinCondition(game)
+    message.innerText =`Draw!`
+    } else checkWinCondition(game)
 }
 
 function checkWinCondition(game) {
   if (game.player1Choice === 'rock' && game.player2Choice === 'scissors') {
     game.player1.wins ++
-    console.log('Player Wins!')
+    message.innerText =`${game.player1.playerName} Wins This Round!`
   } else if (game.player1Choice === 'paper' && game.player2Choice === 'rock') {
     game.player1.wins ++
-    console.log('Player Wins!')
+    message.innerText =`${game.player1.playerName} Wins This Round!`
   } else if (game.player1Choice === 'scissors' && game.player2Choice === 'paper') {
     game.player1.wins ++
-    console.log('Player Wins!')
+    message.innerText =`${game.player1.playerName} Wins This Round!`
   } else {
     game.player2.wins ++
-    console.log('Computer Wins!')
+    message.innerText =`${game.player2.playerName} Wins This Round!`
   }
 }
 
@@ -133,7 +138,7 @@ function showResults(game) {
 }
 
 function reset() {
-  message.innerText = ''
+  message.innerText = 'Choose Rock, Paper, or Scissors'
   chooseSection.classList.toggle('hidden')
   results.classList.toggle('hidden')
 }

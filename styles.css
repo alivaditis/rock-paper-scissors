@@ -8,6 +8,9 @@ body {
   justify-content: space-between;
   background-color: #EEF5DB;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 img {
@@ -15,8 +18,9 @@ img {
 }
 
 header {
-  margin-top: 80px;
+  margin-top: 96px;
   font-size: 2.5rem;
+  font-weight: 900;
 }
 
 button {
@@ -36,7 +40,6 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.2rem
 }
 
 .gameboard, .choice-column1, .choice-column2{
@@ -53,14 +56,14 @@ button {
   display: flex;
   gap: 1.5rem;
   width: 80%;
-  margin-top: 176px;
+  margin-top: 192px;
 }
 
 .results {
   width: 50%;
   display: flex;
   gap: 2.3 rem;
-  margin-top: 20%;
+  margin-top: 192px;
 }
 
 #rock, #paper, #scissors {
