@@ -1,10 +1,10 @@
 // QuerySelectors
 
 gameboard = document.querySelector('.gameboard')
-player1Token = document.querySelectorAll('.player1-token')
-player2Token = document.querySelectorAll('.player2-token')
-player1Name = document.querySelectorAll('.player1-name')
-player2Name = document.querySelectorAll('.player2-name')
+player1Token = document.querySelector('.player1-token')
+player2Token = document.querySelector('.player2-token')
+player1Name = document.querySelector('.player1-name')
+player2Name = document.querySelector('.player2-name')
 player1Win = document.querySelector('.player1-wins')
 player2Win = document.querySelector('.player2-wins')
 
@@ -17,7 +17,6 @@ var weaponOptions = ['rock', 'paper', 'scissors']
 // Event Listeners
 
 gameboard.addEventListener('click', function(event){
-  console.log(currentGame)
   for (var i = 0; i < weaponOptions.length; i++) {
     if(event.target.id === weaponOptions[i]){
       takeTurn(weaponOptions[i], currentGame)
@@ -28,10 +27,10 @@ gameboard.addEventListener('click', function(event){
 })
 
 window.addEventListener('load', function() {
-  player1Name.innerText = `${currentgame.player1.playerName}`
-  player2Name.innerText = `${currentgame.player1.playerName}`
-  player1Token.innerText = `${currentgame.player1.player-token}`
-  player2Token.innerText = `${currentgame.player1.playe-token}`
+  player1Name.innerText = `${currentGame.player1.playerName}`
+  player2Name.innerText = `${currentGame.player1.playerName}`
+  player1Token.innerText = `${currentGame.player1.token}`
+  player2Token.innerText = `${currentGame.player2.token}`
 })
 
 // Functions
