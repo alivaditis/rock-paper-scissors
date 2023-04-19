@@ -1,8 +1,8 @@
 // QuerySelectors
 
 gameboard = document.querySelector('.gameboard')
-PlayerNames = document.querySelectorAll('.playerName')
-Wins = document.querySelectorAll('.wins')
+playerNames = document.querySelectorAll('.playerName')
+wins = document.querySelectorAll('.wins')
 
 // Data Model
 var player = createPlayer('Alec', '👴🏻')
@@ -19,7 +19,7 @@ gameboard.addEventListener('click', function(event){
       takeTurn(weaponOptions[i], currentGame)
       detectDraw(currentGame)
     }
-  displayWins(game)
+  displayWins(currentGame)
 })
 
 // Functions
@@ -86,6 +86,11 @@ function resetGame() {
   
 }
 
+function displayWins(game) {
+  for (var i = 0; i < wins.length; i++) {
+    wins[i].innerHTML = `Wins: ${currentGame[player`${[i]+1}`].wins}`
+  }
+}
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
