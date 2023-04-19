@@ -8,12 +8,15 @@ player2Name = document.querySelector('.player2-name')
 player1Win = document.querySelector('.player1-wins')
 player2Win = document.querySelector('.player2-wins')
 chooseSection = document.querySelector('.choose-section')
+results = document.querySelector('.results')
 
 // Data Model
 var player = createPlayer('Alec', '👴🏻')
 var computer = createPlayer('Computer', '🖥️')
 var currentGame = createGame(player, computer)
 var weaponOptions = ['rock', 'paper', 'scissors']
+var imgSources = ['assets/cave.png', 'assets/lines-paper.png', 'assets/lines-scissors.png']
+var alts = ['a cartoonish graphic representing a cave', 'a cartoon graphic representing paper and a pen', 'a cartoon graphic representing scissors']
 
 // Event Listeners
 
@@ -22,9 +25,10 @@ gameboard.addEventListener('click', function(event){
     if(event.target.id === weaponOptions[i]){
       takeTurn(weaponOptions[i], currentGame)
       detectDraw(currentGame)
+      displayWins(currentGame)
+      showResults(currentGame)
     }
   }
-  displayWins(currentGame)
 })
 
 window.addEventListener('load', function() {
@@ -88,13 +92,37 @@ function checkWinCondition(game) {
   }
 }
 
+function displayWins(game) {
+  player1Win.innerText = `Wins: ${currentGame.player1.wins}`
+  player2Win.innerText = `Wins: ${currentGame.player2.wins}`
+}
+
 function resetGame() {
   
 }
 
-function displayWins(game) {
-  player1Win.innerText = `Wins: ${currentGame.player1.wins}`
-  player2Win.innerText = `Wins: ${currentGame.player2.wins}`
+function showResults(game) {
+  chooseSection.classList.toggle('hidden')
+  results.innerHTML = ''
+  for (var i = 0; i < weaponOptions.length; i++) {
+    if (game.player1Choice === weaponOptions[i]) {
+      results.innerHTML += 
+      `
+      <div>
+        <img src='${imgSources[i]}' alt='${alts[i]}>' 
+      </div>
+      `
+    }
+    if (game.player2Choice === weaponOptions[i]) {
+      results.innerHTML += 
+      `
+      <div>
+        <img src='${imgSources[i]}' alt='${alts[i]}>' 
+      </div>
+      `
+    }
+  }
+  results.classList.toggle('hidden')
 }
 
 function getRandomIndex(array) {
