@@ -1,6 +1,8 @@
 // QuerySelectors
 
 gameboard = document.querySelector('.gameboard')
+player1Token = document.querySelectorAll('.player1-token')
+player2Token = document.querySelectorAll('.player2-token')
 player1Name = document.querySelectorAll('.player1-name')
 player2Name = document.querySelectorAll('.player2-name')
 player1Win = document.querySelector('.player1-wins')
@@ -23,6 +25,13 @@ gameboard.addEventListener('click', function(event){
     }
   }
   displayWins(currentGame)
+})
+
+window.addEventListener('load', function() {
+  player1Name.innerText = `${currentgame.player1.playerName}`
+  player2Name.innerText = `${currentgame.player1.playerName}`
+  player1Token.innerText = `${currentgame.player1.player-token}`
+  player2Token.innerText = `${currentgame.player1.playe-token}`
 })
 
 // Functions
