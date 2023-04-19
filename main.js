@@ -11,6 +11,7 @@ chooseSection = document.querySelector('.choose-section')
 results = document.querySelector('.results')
 choiceColumn1 = document.querySelector('.choice-column1')
 choiceColumn2 = document.querySelector('.choice-column2')
+message = document.querySelector('.message')
 
 // Data Model
 var player = createPlayer('Alec', '👴🏻')
@@ -121,11 +122,19 @@ function showResults(game) {
       choiceColumn2.innerHTML += 
       `
         <img src='${imgSources[i]}' alt='${alts[i]}'>
-        <p>${game.player2.token}
+        <p>
+        ${game.player2.token}
         </p>
       `
     }
   }
+  results.classList.toggle('hidden')
+  setTimeout(reset, 1500)
+}
+
+function reset() {
+  message.innerText = ''
+  chooseSection.classList.toggle('hidden')
   results.classList.toggle('hidden')
 }
 

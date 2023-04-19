@@ -45,6 +45,10 @@ button {
   align-items: center;
 }
 
+.gameboard {
+  width: 64%;
+}
+
 .choose-section {
   display: flex;
   gap: 1.5rem;
