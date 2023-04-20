@@ -19,7 +19,7 @@
     </section>
     <button class="hidden">Change Game</button>
   </section>
-  <section class="gameboard">
+  <section class="gameboard hidden">
     <header class="message">Choose Rock, Paper, Or Scissors</header>
     <section class="choose-section">
       <div>
@@ -38,13 +38,50 @@
         <img src="assets/lizard.png" alt="a cartoon graphic representing a green lizard" id="lizard" class="hidden">
       </div>
     </section>
-    <div class="options-button">
-      <img src="assets/25-253298_settings-cog-gears-icon.png" alt="icon of gears representing settings button">
-    </div>
     <section class="results hidden">
       <section class = 'choice-column1'></section>
       <section class = 'choice-column2'></section>
     </section>
+    <div class="options-button">
+      <img src="assets/25-253298_settings-cog-gears-icon.png" alt="icon of gears representing settings button">
+    </div>
+  </section>
+  <section class="options-view">
+      <div class="radio-section">
+        <legend>Select Game Type:</legend>
+        <div class="radio-row">  
+          <div class="radio-column">
+            <div>
+              <input type="radio" id="classic" name="gameType" value="classic">
+              <label for="classic">Classic</label>
+            </div>
+            <p style="font-size: .8rem;">rock > scissors <br> paper > rock <br> scissors > paper</p>
+          </div>
+          <div class="radio-column">
+            <div>
+              <input type="radio" id="ultimate" name="gameType" value="ultimate">
+              <label for="classic">Ultimate</label>
+            </div>
+            <p style="font-size: .8rem;">rock > scissors <br> paper > rock <br> scissors > paper <br> lizard > paper & alien <br> alien > scissors & rock</p>
+          </div>
+      </div>
+    </div>
+    <div>
+      <input>
+      <button>Set Player 1 Name</button>
+    </div>
+    <div>
+      <input>
+      <button>Set Player 2 Name</button>
+    </div>
+    <div>
+      <select>
+      </select>
+    </div>  
+    <div>
+      <select>
+      </select>
+    </div>  
   </section>
   <section class="player-info-section">
     <section class="player-info">

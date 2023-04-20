@@ -47,8 +47,8 @@ window.addEventListener('load', function() {
   player2Name.innerText = `${currentGame.player2.playerName}`
   player1Token.innerText = `${currentGame.player1.token}`
   player2Token.innerText = `${currentGame.player2.token}`
-  // updateGameType(currentGame)
-  // detectGameType(currentGame)
+  updateGameType(currentGame)
+  detectGameType(currentGame)
 })
 
 // Functions
