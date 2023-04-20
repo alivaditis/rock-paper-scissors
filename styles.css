@@ -3,7 +3,7 @@
 }
 
 body {
-  min-height: 100dvh;
+  min-height: 100vh;
   display: flex;
   justify-content: space-between;
   background-color: #EEF5DB;
@@ -23,10 +23,6 @@ header {
   font-weight: 900;
 }
 
-button {
-    cursor: pointer;
-}
-
 .player-info-section {
   width: 18%;
   background-color: #C7EFCF;
@@ -42,7 +38,7 @@ button {
   align-items: center;
 }
 
-.gameboard, .choice-column1, .choice-column2{
+.gameboard, .choice-column1, .choice-column2 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,7 +62,14 @@ button {
   margin-top: 192px;
 }
 
-#rock, #paper, #scissors, #alien, #lizard {
+.options-button {
+  width: 2rem;
+  height: 2 rem;
+  justify-self: end;
+  align-self: end;
+  margin: 208px 64px 16px 0;}
+
+#rock, #paper, #scissors, #alien, #lizard, .options-button {
   cursor: pointer;
 }
 
