@@ -66,8 +66,8 @@ button {
   margin-top: 192px;
 }
 
-#rock, #paper, #scissors {
-  cursor: pointer
+#rock, #paper, #scissors, #alien, #lizard {
+  cursor: pointer;
 }
 
 .hidden {
