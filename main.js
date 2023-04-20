@@ -14,6 +14,11 @@ choiceColumn2 = document.querySelector('.choice-column2')
 message = document.querySelector('.message')
 alien = document.querySelector('#alien')
 lizard = document.querySelector('#lizard')
+optionsView = document.querySelector('.options-view')
+optionsButton = document.querySelector('.options-button')
+backButton = document.querySelector('#back')
+classic = document.querySelector('#classic')
+ultimate = document.querySelector('#ultimate')
 
 // Data Model
 var player = createPlayer('Alec', '👴🏻')
@@ -31,7 +36,6 @@ var alts =
 // Event Listeners
 
 gameboard.addEventListener('click', function(event){
-  console.log(event.target.id)
   for (var i = 0; i < weaponOptions.length; i++) {
     if(event.target.id === weaponOptions[i]){
       takeTurn(weaponOptions[i], currentGame)
@@ -43,12 +47,25 @@ gameboard.addEventListener('click', function(event){
 })
 
 window.addEventListener('load', function() {
-  player1Name.innerText = `${currentGame.player1.playerName}`
-  player2Name.innerText = `${currentGame.player2.playerName}`
-  player1Token.innerText = `${currentGame.player1.token}`
-  player2Token.innerText = `${currentGame.player2.token}`
-  updateGameType(currentGame)
+  displayNames(currentGame)
   detectGameType(currentGame)
+})
+
+optionsView.addEventListener('click', function(event) {
+  if (event.target.id === 'classic' || event.target.id === 'ultimate')  {
+  updateGameType(currentGame)
+  }
+})
+
+backButton.addEventListener('click', function() {
+  detectGameType(currentGame)
+  optionsView.classList.add('hidden')
+  gameboard.classList.remove('hidden')
+})
+
+optionsButton.addEventListener('click', function() {
+  optionsView.classList.remove('hidden')
+  gameboard.classList.add('hidden')
 })
 
 // Functions
@@ -74,7 +91,19 @@ function createGame(player1, player2) {
 }
 
 function updateGameType(game) {
-  game.gameType = 'ultimate'
+  if (classic.checked) {
+    game.gameType = 'classic'
+  }
+  if (ultimate.checked) {
+    game.gameType = 'ultimate'
+  }
+}
+
+function displayNames(game) {
+  player1Name.innerText = `${game.player1.playerName}`
+  player2Name.innerText = `${game.player2.playerName}`
+  player1Token.innerText = `${game.player1.token}`
+  player2Token.innerText = `${game.player2.token}`
 }
 
 function detectGameType(game) {
