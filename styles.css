@@ -48,6 +48,10 @@ button {
   font-size: 2rem;
 }
 
+select {
+  font-size: 1.1rem;
+}
+
 .gameboard, .choice-column1, .choice-column2, .options-view, .radio-section, .radio-column {
   display: flex;
   flex-direction: column;
