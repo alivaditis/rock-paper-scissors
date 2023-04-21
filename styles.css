@@ -29,6 +29,10 @@ button {
   cursor: pointer;
 }
 
+select {
+  font-size: 1.1rem;
+}
+
 .player-info-section {
   width: 18%;
   background-color: #C7EFCF;
@@ -48,9 +52,6 @@ button {
   font-size: 2rem;
 }
 
-select {
-  font-size: 1.1rem;
-}
 
 .gameboard, .choice-column1, .choice-column2, .options-view, .radio-section, .radio-column {
   display: flex;
