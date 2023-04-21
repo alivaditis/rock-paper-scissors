@@ -19,6 +19,8 @@ optionsButton = document.querySelector('.options-button')
 backButton = document.querySelector('#back')
 classic = document.querySelector('#classic')
 ultimate = document.querySelector('#ultimate')
+player1Input = document.querySelector('#player1-input').value
+player2Input = document.querySelector('#player2-input').value
 
 // Data Model
 var player = createPlayer('Alec', '👴🏻')
@@ -54,6 +56,16 @@ window.addEventListener('load', function() {
 optionsView.addEventListener('click', function(event) {
   if (event.target.id === 'classic' || event.target.id === 'ultimate')  {
   updateGameType(currentGame)
+  }
+  if (event.target.id === ('player1-name-button')) {
+    updatePlayer1Name(currentGame, document.querySelector('#player1-input').value)
+    displayNames(currentGame)
+    document.querySelector('#player1-input').value = ''
+  }
+  if (event.target.id === ('player2-name-button')) {
+    updatePlayer2Name(currentGame, document.querySelector('#player2-input').value)
+    displayNames(currentGame)
+    document.querySelector('#player2-input').value = ''
   }
 })
 
@@ -97,6 +109,16 @@ function updateGameType(game) {
   if (ultimate.checked) {
     game.gameType = 'ultimate'
   }
+}
+
+function updatePlayer1Name(game, input) {
+  if (input)
+  game.player1.playerName = input
+}
+
+function updatePlayer2Name(game, input) {
+  if (input)
+  game.player2.playerName = input
 }
 
 function displayNames(game) {
