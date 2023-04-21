@@ -8,7 +8,7 @@ body {
   justify-content: space-between;
   background-color: #EEF5DB;
   margin: 0;
-  color: #011638;
+  color: #3617a5;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 1.5rem;
@@ -42,6 +42,10 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.player1-token, .player2-token {
+  font-size: 2rem;
 }
 
 .gameboard, .choice-column1, .choice-column2, .options-view, .radio-section, .radio-column {

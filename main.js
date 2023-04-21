@@ -19,11 +19,11 @@ optionsButton = document.querySelector('.options-button')
 backButton = document.querySelector('#back')
 classic = document.querySelector('#classic')
 ultimate = document.querySelector('#ultimate')
-player1Input = document.querySelector('#player1-input').value
-player2Input = document.querySelector('#player2-input').value
+player1TokenSelect = document.querySelector('#player1-token-select')
+player2TokenSelect = document.querySelector('#player2-token-select')
 
 // Data Model
-var player = createPlayer('Alec', '👴🏻')
+var player = createPlayer('Alec', '🧔🏻‍♂️')
 var computer = createPlayer('Computer', '🖥️')
 var currentGame = createGame(player, computer)
 var weaponOptions = ['rock', 'paper', 'scissors']
@@ -57,17 +57,27 @@ optionsView.addEventListener('click', function(event) {
   if (event.target.id === 'classic' || event.target.id === 'ultimate')  {
   updateGameType(currentGame)
   }
-  if (event.target.id === ('player1-name-button')) {
+  if (event.target.id === 'player1-name-button') {
     updatePlayer1Name(currentGame, document.querySelector('#player1-input').value)
     displayNames(currentGame)
     document.querySelector('#player1-input').value = ''
   }
-  if (event.target.id === ('player2-name-button')) {
+  if (event.target.id === 'player2-name-button') {
     updatePlayer2Name(currentGame, document.querySelector('#player2-input').value)
     displayNames(currentGame)
     document.querySelector('#player2-input').value = ''
   }
 })
+
+player1TokenSelect.addEventListener("change", function(event) {
+  updatePlayer1Token(currentGame, event.target.value)
+  displayNames(currentGame)
+})
+
+player2TokenSelect.addEventListener("change", function (event) {
+    updatePlayer2Token(currentGame, event.target.value)
+    displayNames(currentGame)
+  })
 
 backButton.addEventListener('click', function() {
   detectGameType(currentGame)
@@ -119,6 +129,16 @@ function updatePlayer1Name(game, input) {
 function updatePlayer2Name(game, input) {
   if (input)
   game.player2.playerName = input
+}
+
+function updatePlayer1Token(game, option) {
+  if (option)
+  game.player1.token = option
+}
+
+function updatePlayer2Token(game, option) {
+  if (option)
+  game.player2.token = option
 }
 
 function displayNames(game) {
