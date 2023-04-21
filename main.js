@@ -49,7 +49,11 @@ gameboard.addEventListener('click', function(event){
 })
 
 window.addEventListener('load', function() {
+  if (localStorage.getItem('game')) {
+  currentGame = JSON.parse(localStorage.getItem('game'))
+  }
   displayNames(currentGame)
+  displayWins(currentGame)
   detectGameType(currentGame)
 })
 
@@ -119,26 +123,35 @@ function updateGameType(game) {
   if (ultimate.checked) {
     game.gameType = 'ultimate'
   }
+  localStorage.setItem('game', JSON.stringify(game))
 }
 
 function updatePlayer1Name(game, input) {
-  if (input)
+  if (input) {
   game.player1.playerName = input
+  localStorage.setItem('game', JSON.stringify(game))
+  }
 }
 
 function updatePlayer2Name(game, input) {
-  if (input)
+  if (input) {
   game.player2.playerName = input
+  localStorage.setItem('game', JSON.stringify(game))
+  }
 }
 
 function updatePlayer1Token(game, option) {
-  if (option)
+  if (option) {
   game.player1.token = option
+  localStorage.setItem('game', JSON.stringify(game))
+  }
 }
 
 function updatePlayer2Token(game, option) {
-  if (option)
+  if (option) {
   game.player2.token = option
+  localStorage.setItem('game', JSON.stringify(game))
+  }
 }
 
 function displayNames(game) {
@@ -226,6 +239,7 @@ function checkWinCondition(game) {
     game.player2.wins ++
     message.innerText =`${game.player2.playerName} Wins This Round!`
   }
+  localStorage.setItem('game', JSON.stringify(game))
 }
 
 function displayWins(game) {
