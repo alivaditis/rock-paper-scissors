@@ -1,16 +1,18 @@
-* {
+/* * {
   border: solid red 2px;
-}
+} */
 
 body {
-  min-height: 100dvh;
+  min-height: 100vh;
   display: flex;
   justify-content: space-between;
   background-color: #EEF5DB;
   margin: 0;
+  color: #3617a5;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 img {
@@ -24,7 +26,7 @@ header {
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .player-info-section {
@@ -42,7 +44,11 @@ button {
   align-items: center;
 }
 
-.gameboard, .choice-column1, .choice-column2{
+.player1-token, .player2-token {
+  font-size: 2rem;
+}
+
+.gameboard, .choice-column1, .choice-column2, .options-view, .radio-section, .radio-column {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,23 +56,50 @@ button {
 
 .gameboard {
   width: 64%;
+  justify-content: space-between;
+}
+
+.options-view {
+  justify-content: center;
+  gap:  4rem;
+  padding: 1.5rem;
+  background-color: #faa381;
+  border-radius: 5px;
+  height: 80%;
+  width: 40%;
+  align-self: center;
 }
 
 .choose-section {
   display: flex;
   gap: 1.5rem;
   width: 80%;
-  margin-top: 192px;
 }
 
 .results {
   width: 50%;
   display: flex;
-  gap: 2.3 rem;
-  margin-top: 192px;
+  gap: 2.3rem;
 }
 
-#rock, #paper, #scissors, #alien, #lizard {
+.options-button {
+  width: 2rem;
+  height: 2rem;
+  justify-self: end;
+  align-self: end;
+  margin: 32px;
+}
+
+.radio-section {
+  gap: 1.2rem;
+}
+
+.radio-row {
+  display: flex;
+  gap: 3rem;
+}
+
+#rock, #paper, #scissors, #alien, #lizard, .options-button {
   cursor: pointer;
 }
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>ROCK PAPER SCISSORS</title>
   <link rel="stylesheet" href="./styles.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
@@ -42,6 +42,63 @@
       <section class = 'choice-column1'></section>
       <section class = 'choice-column2'></section>
     </section>
+    <div class="options-button">
+      <img src="assets/25-253298_settings-cog-gears-icon.png" alt="icon of gears representing settings button">
+    </div>
+  </section>
+  <section class="options-view hidden">
+      <div class="radio-section">
+        <legend>Select Game Type:</legend>
+        <div class="radio-row">  
+          <div class="radio-column">
+            <div>
+              <input type="radio" id="classic" name="gameType" value="classic">
+              <label for="classic">Classic</label>
+            </div>
+            <p style="font-size: .8rem;">rock > scissors <br> paper > rock <br> scissors > paper</p>
+          </div>
+          <div class="radio-column">
+            <div>
+              <input type="radio" id="ultimate" name="gameType" value="ultimate">
+              <label for="classic">Ultimate</label>
+            </div>
+            <p style="font-size: .8rem;">rock > scissors <br> paper > rock <br> scissors > paper <br> lizard > paper & alien <br> alien > scissors & rock</p>
+          </div>
+      </div>
+    </div>
+    <div>
+      <input id="player1-input">
+      <button id="player1-name-button">Set Player 1 Name</button>
+    </div>
+    <div>
+      <input id="player2-input">
+      <button id="player2-name-button">Set Player 2 Name</button>
+    </div>
+    <div>
+      <label for="player1-token-select">Choose Player 1 Token:</label>
+      <select id="player1-token-select" name="player1-token-select">
+        <option value="🧔🏻‍♂️" selected>🧔🏻‍♂️</option>
+        <option value="🧑🏾‍🦱">🧑🏾‍🦱</option>
+        <option value="👨‍🦲">👨‍🦲</option>
+        <option value="🧑🏻">🧑🏻</option>
+        <option value="👩🏾‍🦱">👩🏾‍🦱</option>
+        <option value="👱‍♀️">👱‍♀️</option>
+        <option value="🤖">🤖</option>
+    </select>
+    </div>  
+    <div>
+      <label for="player2-token-select">Choose Player 2 Token:</label>
+      <select id="player2-token-select" name="player2-token-select">
+        <option value="🖥️" selected>🖥️</option>
+        <option value="💻">💻</option>
+        <option value="💽">💽</option>
+        <option value="🐵">🐵</option>
+        <option value="🧜🏿‍♀️">🧜🏿‍♀️</option>
+        <option value="🧚">🧚</option>
+        <option value="🤖">🤖</option>
+    </select>
+    </div>
+    <button id="back">BACK</button>  
   </section>
   <section class="player-info-section">
     <section class="player-info">
