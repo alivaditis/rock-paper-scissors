@@ -21,8 +21,8 @@ var player1TokenSelect = document.querySelector('#player1-token-select')
 var player2TokenSelect = document.querySelector('#player2-token-select')
 
 // Data Model
-var player = createPlayer('Alec', '🧔🏻‍♂️')
-var computer = createPlayer('Computer', '🖥️')
+let player = createPlayer('Player1', '🧔🏻‍♂️')
+let computer = createPlayer('Computer', '🖥️')
 var currentGame = createGame(player, computer)
 var weaponOptions = ['rock', 'paper', 'scissors']
 var imgSources = ['assets/cave.png', 'assets/lines-paper.png', 'assets/lines-scissors.png']
@@ -81,12 +81,14 @@ optionsView.addEventListener('click', function(event) {
   if (event.target.id === 'reset') {
     player1TokenSelect.selectedIndex = 0
     player2TokenSelect.selectedIndex = 0
+    classic.checked = false
+    ultimate.checked = false
+    player = createPlayer('Player1', '🧔🏻‍♂️')
+    computer = createPlayer('Computer', '🖥️')
     currentGame = createGame(player, computer)
     localStorage.setItem('game', JSON.stringify(currentGame))
     displayNames(currentGame)
     displayWins(currentGame)
-    classic.checked = false
-    ultimate.checked = false
   }
 })
 
@@ -147,17 +149,13 @@ function updatePlayer2Name(game, input) {
 }
 
 function updatePlayer1Token(game, option) {
-  if (option) {
   game.player1.token = option
   localStorage.setItem('game', JSON.stringify(game))
-  }
 }
 
 function updatePlayer2Token(game, option) {
-  if (option) {
   game.player2.token = option
   localStorage.setItem('game', JSON.stringify(game))
-  }
 }
 
 function displayNames(game) {
