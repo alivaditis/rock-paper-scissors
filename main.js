@@ -237,7 +237,7 @@ function checkWinCondition(game) {
   } else if (game.player1Choice === 'lizard' && (game.player2Choice === 'paper' || game.player2Choice === 'alien')) {
     game.player1.wins ++
     message.innerText =`${game.player1.playerName} Wins This Round!`
-  } else if (game.player1Choice === 'aliean' && (game.player2Choice === 'scissors' || game.player2Choice === 'rock')) {
+  } else if (game.player1Choice === 'alien' && (game.player2Choice === 'scissors' || game.player2Choice === 'rock')) {
     game.player1.wins ++
     message.innerText =`${game.player1.playerName} Wins This Round!`
   } else {
