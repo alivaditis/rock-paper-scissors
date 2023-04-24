@@ -83,7 +83,7 @@ optionsView.addEventListener('click', function(event) {
     localStorage.setItem('game', JSON.stringify(currentGame))
     displayNames(currentGame)
     displayWins(currentGame)
-    classic.checked = true
+    classic.checked = false
     ultimate.checked = false
   }
 })
