@@ -79,6 +79,8 @@ optionsView.addEventListener('click', function(event) {
     gameboard.classList.remove('hidden')
   }
   if (event.target.id === 'reset') {
+    player1TokenSelect.selectedIndex = 0
+    player2TokenSelect.selectedIndex = 0
     currentGame = createGame(player, computer)
     localStorage.setItem('game', JSON.stringify(currentGame))
     displayNames(currentGame)
