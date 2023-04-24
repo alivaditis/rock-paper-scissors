@@ -15,13 +15,10 @@ var message = document.querySelector('.message')
 var alien = document.querySelector('#alien')
 var lizard = document.querySelector('#lizard')
 var optionsView = document.querySelector('.options-view')
-var optionsButton = document.querySelector('.options-button')
-var backButton = document.querySelector('#back')
 var classic = document.querySelector('#classic')
 var ultimate = document.querySelector('#ultimate')
 var player1TokenSelect = document.querySelector('#player1-token-select')
 var player2TokenSelect = document.querySelector('#player2-token-select')
-var resetButton = document.querySelector('#reset')
 
 // Data Model
 var player = createPlayer('Alec', '🧔🏻‍♂️')
@@ -38,6 +35,15 @@ var alts =
 
 // Event Listeners
 
+window.addEventListener('load', function() {
+  if (localStorage.getItem('game')) {
+  currentGame = JSON.parse(localStorage.getItem('game'))
+  }
+  displayNames(currentGame)
+  displayWins(currentGame)
+  detectGameType(currentGame)
+})
+
 gameboard.addEventListener('click', function(event){
   for (var i = 0; i < weaponOptions.length; i++) {
     if(event.target.id === weaponOptions[i]){
@@ -47,15 +53,11 @@ gameboard.addEventListener('click', function(event){
       showResults(currentGame)
     }
   }
-})
-
-window.addEventListener('load', function() {
-  if (localStorage.getItem('game')) {
-  currentGame = JSON.parse(localStorage.getItem('game'))
+  if (event.target.id === ('gear')) {
+    console.log('ya boiiii')
+    optionsView.classList.remove('hidden')
+    gameboard.classList.add('hidden')
   }
-  displayNames(currentGame)
-  displayWins(currentGame)
-  detectGameType(currentGame)
 })
 
 optionsView.addEventListener('click', function(event) {
@@ -72,6 +74,18 @@ optionsView.addEventListener('click', function(event) {
     displayNames(currentGame)
     document.querySelector('#player2-input').value = ''
   }
+  if (event.target.id === 'back') {
+    detectGameType(currentGame)
+    optionsView.classList.add('hidden')
+    gameboard.classList.remove('hidden')
+  }
+  if (event.target.id === 'reset') {
+    currentGame = createGame(player, computer)
+    localStorage.setItem('game', JSON.stringify(currentGame))
+    displayNames(currentGame)
+    displayWins(currentGame)
+
+  }
 })
 
 player1TokenSelect.addEventListener("change", function(event) {
@@ -83,24 +97,6 @@ player2TokenSelect.addEventListener("change", function (event) {
     updatePlayer2Token(currentGame, event.target.value)
     displayNames(currentGame)
   })
-
-backButton.addEventListener('click', function() {
-  detectGameType(currentGame)
-  optionsView.classList.add('hidden')
-  gameboard.classList.remove('hidden')
-})
-
-optionsButton.addEventListener('click', function() {
-  optionsView.classList.remove('hidden')
-  gameboard.classList.add('hidden')
-})
-
-resetButton.addEventListener('click', function() {
-  currentGame = createGame(player, computer)
-  localStorage.setItem('game', JSON.stringify(currentGame))
-  displayNames(currentGame)
-  displayWins(currentGame)
-})
 
 // Functions
 
