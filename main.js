@@ -54,7 +54,6 @@ gameboard.addEventListener('click', function(event){
     }
   }
   if (event.target.id === ('gear')) {
-    console.log('ya boiiii')
     optionsView.classList.remove('hidden')
     gameboard.classList.add('hidden')
   }
