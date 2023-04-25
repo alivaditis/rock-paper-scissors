@@ -15,3 +15,7 @@
 - Change the token for the players with the selector options!
 - Reset the game to initial values with the reset button!
 - Press back to return to gameplay!
+
+# Preview
+
+https://user-images.githubusercontent.com/123565022/234343871-79c7b0fb-af44-4815-af2f-29e690a87e6a.mp4
