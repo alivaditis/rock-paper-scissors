@@ -21,3 +21,11 @@
 ![Screen Shot 2023-04-25 at 11 06 34 AM](https://user-images.githubusercontent.com/123565022/234344559-515269e0-e07c-4b66-acff-907c49d3f413.png)
 ![Screen Shot 2023-04-25 at 12 07 52 PM](https://user-images.githubusercontent.com/123565022/234344579-fb096c69-c907-4322-9114-7dcabf46ffb1.png)
 ![Screen Shot 2023-04-25 at 12 08 07 PM](https://user-images.githubusercontent.com/123565022/234344607-9069d811-d6c3-4fb4-8f06-6f6753a177e7.png)
+
+# Challenges
+
+- Represent the data in a game object
+- Render data model
+- Use local storage so that data persists on refresh
+- Understand selection and options, use the change event
+- When I initially used the createGame function I noticed it had side effects of mutating the player and computer objects, so I used the spread operator applied to the arguments
